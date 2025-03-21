@@ -1,0 +1,14 @@
+Employee Name: Joel Serfoss
+Employee ID: 1
+Hours worked for the week: 40
+Current PayRate/hr: $100
+Their gross wages for the week were: $4000
+This employee was taxed: $1320
+This employee's netpay for the week was : $2680
+Employee Name: John Dillinger
+Employee ID: 2
+Hours worked for the week: 20
+Current PayRate/hr: $100
+Their gross wages for the week were: $2000
+This employee was taxed: $480
+This employee's netpay for the week was : $1520

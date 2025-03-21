@@ -1,0 +1,18 @@
+# Ignore Visual Studio files
+.vs/
+*.VC.db
+*.suo
+
+# Ignore build folders
+Debug/
+Release/
+x64/
+
+# Ignore compiled files
+*.exe
+*.obj
+*.o
+
+# Ignore IntelliSense & user settings
+ipch/
+*.user
