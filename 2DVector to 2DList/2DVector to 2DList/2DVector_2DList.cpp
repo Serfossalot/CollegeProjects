@@ -36,7 +36,7 @@ void Display_2D(const T& container)
 
 int main()
 {
-    vector<vector<int>> V = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+    vector<vector<int>> V = { {1, 2}, {4, 5, 6}, {7, 8, 9} };
     list<list<int>> L_2d;
 
     cout << "Vector:" << endl;
