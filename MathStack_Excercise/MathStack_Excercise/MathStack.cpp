@@ -47,10 +47,10 @@ void MathStack::sub()
    push(diff);
 }
 void MathStack::mult() {
-	int product, num;
-	pop(product);
+	int num, product;
 	pop(num);
-	push(num * product);
+	pop(product);
+	push(product * num);
 }
 void MathStack::div() {
 	int denominator, numerator;
