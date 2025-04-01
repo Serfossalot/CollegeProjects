@@ -1,61 +1,55 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
-
-struct Job {
-    string name;
-    int priority;
-
-    // Higher priority means higher number
-    Job(string n, int p) : name(n), priority(p) {}
-};
-
-class PriorityQueue {
+class PriorityQueue
+{
 private:
-    vector<Job> queue;
-
+	vector<int> data;
 public:
-    void insert(const string& name, int priority) {
-        Job newJob(name, priority);
-        queue.push_back(newJob);
-
-        // Sort queue based on priority (highest first)
-        for (int i = queue.size() - 1; i > 0; --i) {
-            if (queue[i].priority > queue[i - 1].priority)
-                swap(queue[i], queue[i - 1]);
-        }
-    }
-
-    void remove() {
-        if (queue.empty())
-            cout << "Queue is empty.\n";
-        else {
-            cout << "Removing job: " << queue[0].name << " with priority " << queue[0].priority << endl;
-            queue.erase(queue.begin());
-        }
-    }
-
-    void display() {
-        cout << "Priority Queue:\n";
-        for (const Job& job : queue) {
-            cout << job.name << " (priority " << job.priority << ")\n";
-        }
-    }
-
-    bool isEmpty() const {
-        return queue.empty();
-    }
+	// Returns the number of elements in the priority queue
+	int size()
+	{
+		return data.size();
+	}
+	// Returns true if the priority queue is empty, false otherwise
+	bool empty()
+	{
+		return data.empty();
+	}
+	// Inserts an element into the priority queue
+	void push(int element)
+	{
+		data.push_back(element);
+		sort(data.begin(), data.end());
+	}
+	// Removes and returns the element with the highest priority (lowest value)
+	int pop()
+	{
+		int element = data.front();
+		data.erase(data.begin());
+		return element;
+	}
+	int top()
+	{
+		return data.front();
+	}
 };
-
-int main() {
-    PriorityQueue pq;
-    pq.insert("Backup process", 2);
-    pq.insert("User request", 5);
-    pq.insert("System update", 3);
-
-    pq.display();
-    pq.remove();
-    pq.display();
-
-    return 0;
+int main()
+{
+	PriorityQueue pq;
+	pq.push(5);
+	pq.push(1);
+	pq.push(0);
+	pq.push(-2);
+	pq.push(4);
+	pq.push(10);
+	pq.push(-10);
+	cout << "Size: " << pq.size() << endl;
+	cout << "Queue elements: ";
+	while (!pq.empty()) {
+		cout << pq.top() << " ";
+		pq.pop();
+	}
+	return 0;
 }
